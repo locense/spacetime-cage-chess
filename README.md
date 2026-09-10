@@ -1,13 +1,13 @@
 # 时空牢笼棋 / Spacetime Cage Chess
 
-> Web MVP archive for a topology-driven chess variant.  
+> Web MVP archive for a topology-driven chess variant.
 > 基于拓扑棋盘规则的 Web MVP 备份。
 
 ## 项目状态 / Project Status
 
-当前版本实现了本地双人 Web MVP：React + Vite + SVG 棋盘，以及独立、无 UI/网络依赖的 TypeScript 规则引擎。
+当前归档版本为 **2026-09-10**：本地双人 Web MVP，使用 React + Vite + SVG 棋盘，以及独立、无 UI/网络依赖的 TypeScript 规则引擎。
 
-This version implements a local two-player Web MVP: a React + Vite + SVG board and an independent TypeScript rules engine with no UI or network dependency.
+The current archive is **2026-09-10**: a local two-player Web MVP with a React + Vite + SVG board and an independent TypeScript rules engine with no UI or network dependency.
 
 ## 已实现 / Included
 
@@ -19,33 +19,39 @@ This version implements a local two-player Web MVP: a React + Vite + SVG board a
   Separate move generation and attack detection for rooks, bishops, queens, kings, and pawns.
 - 兵双步、过路兵、升变、三次重复、数子终局与 `DeadPositionDetector` 接口。
   Pawn double steps, en passant, promotion, threefold repetition, count-based endings, and a `DeadPositionDetector` interface.
-- Vitest 验收与性质测试；验证命令见下方。
-  Vitest acceptance and property tests; see verification commands below.
+- 双方各连续走满 8 步、即 16 个半回合未吃掉对方棋子时，立即按子数结算；捕获门户建筑物不重置计数。
+  Count-based settlement after 8 consecutive moves per side (16 plies) without capturing an opposing piece; portal-building captures do not reset the counter.
+- Vitest 验收与性质测试：25 项通过。
+  Vitest acceptance and property tests: 25 passing tests.
 
-## 备份文件 / Archive Files
+## 当前归档 / Current Archive
 
-由于 GitHub 网页上传不会保留多文件上传的目录相对路径，本仓库保存了两份完整、可恢复的快照。
+GitHub 网页上传不会保留多文件上传的 monorepo 相对路径，因此仓库保存完整、可恢复的 ZIP 与 Git bundle。
 
-Because GitHub web uploads do not preserve relative paths for a multi-file monorepo upload, this repository contains two complete, recoverable snapshots.
+GitHub web uploads do not preserve relative paths for a multi-file monorepo upload, so this repository stores complete, recoverable ZIP and Git bundle archives.
 
 | 文件 / File | 用途 / Purpose |
 | --- | --- |
-| `spacetime-cage-chess-mvp.zip` | 源码、测试与 workspace 配置的 ZIP 快照。<br />ZIP snapshot of source code, tests, and workspace configuration. |
-| `spacetime-cage-chess-mvp.bundle` | 完整 Git bundle，包含 `main` 与提交 `e31bf5c`。<br />Complete Git bundle containing `main` and commit `e31bf5c`. |
+| `spacetime-cage-chess-mvp-2026-09-10.zip` | **当前版本**的源码、测试与 workspace 配置 ZIP 快照。<br />**Current** ZIP snapshot of source code, tests, and workspace configuration. |
+| `spacetime-cage-chess-mvp-2026-09-10.bundle` | **当前版本**的完整 Git bundle，`main` 提交为 `f114ae3`。<br />**Current** complete Git bundle; `main` commit is `f114ae3`. |
+
+旧版归档仍保留用于历史参考。
+
+Earlier archives are retained for historical reference.
 
 ## 恢复项目 / Restore the Project
 
 ### 从 ZIP 恢复 / From ZIP
 
 ```powershell
-Expand-Archive .\spacetime-cage-chess-mvp.zip -DestinationPath .\spacetime-cage-chess
+Expand-Archive .\spacetime-cage-chess-mvp-2026-09-10.zip -DestinationPath .\spacetime-cage-chess
 cd .\spacetime-cage-chess
 ```
 
 ### 从 Git bundle 恢复 / From the Git Bundle
 
 ```bash
-git clone spacetime-cage-chess-mvp.bundle spacetime-cage-chess
+git clone spacetime-cage-chess-mvp-2026-09-10.bundle spacetime-cage-chess
 cd spacetime-cage-chess
 ```
 
